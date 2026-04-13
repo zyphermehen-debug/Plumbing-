@@ -353,6 +353,56 @@ const EmergencyCTA = () => {
   );
 };
 
+const Testimonials = () => {
+  const testimonials = [
+    { text: "Najbolja usluga u gradu! Došli su za 20 minuta.", author: "Marko P." },
+    { text: "Veoma profesionalni i čisti. Topla preporuka.", author: "Jelena S." },
+    { text: "Cena je bila tačno onakva kako su rekli. Bez skrivenih troškova.", author: "Nikola D." },
+    { text: "Rešili su problem koji niko drugi nije mogao.", author: "Milica R." },
+    { text: "Ljubazni majstori i vrhunska oprema.", author: "Dragan T." },
+    { text: "Brza i efikasna popravka bojlera. Hvala!", author: "Slobodan M." },
+  ];
+
+  // Duplicate the list to create a seamless loop
+  const doubledTestimonials = [...testimonials, ...testimonials];
+
+  return (
+    <section className="py-20 bg-white overflow-hidden border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 mb-12 text-center">
+        <Badge variant="outline" className="mb-4 border-brand-gold text-brand-gold px-4 py-1 rounded-full uppercase tracking-widest text-[10px] font-bold">Utisci klijenata</Badge>
+        <h2 className="text-3xl font-bold text-brand-navy font-display">Šta kažu o nama</h2>
+      </div>
+      
+      <div className="relative flex overflow-x-hidden">
+        <motion.div 
+          className="flex whitespace-nowrap gap-8 py-4"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ 
+            ease: "linear", 
+            duration: 30, 
+            repeat: Infinity 
+          }}
+        >
+          {doubledTestimonials.map((t, idx) => (
+            <div 
+              key={idx} 
+              className="inline-flex flex-col gap-4 p-8 rounded-3xl bg-slate-50 border border-slate-100 min-w-[350px]"
+            >
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-brand-gold fill-brand-gold" />
+                ))}
+              </div>
+              <p className="text-slate-600 italic font-light whitespace-normal">"{t.text}"</p>
+              <p className="text-brand-navy font-bold text-sm">— {t.author}</p>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const ContactForm = () => {
   return (
     <section id="contact" className="py-32 bg-slate-50">
@@ -560,6 +610,7 @@ export default function App() {
         <Services />
         <WhyUs />
         <EmergencyCTA />
+        <Testimonials />
         <FAQ />
         <ContactForm />
       </main>
