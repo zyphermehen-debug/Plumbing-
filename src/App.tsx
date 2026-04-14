@@ -122,24 +122,28 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-black">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section className="relative min-h-screen min-h-[100dvh] flex items-center pt-20 overflow-hidden bg-brand-navy">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,_var(--tw-gradient-stops))] from-brand-navy/80 via-brand-navy to-brand-navy"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         <div className="max-w-3xl">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6 md:mb-8"
           >
             <span className="flex h-2 w-2 rounded-full bg-brand-gold animate-pulse"></span>
-            <span className="text-xs font-bold text-white tracking-widest uppercase">Hitne intervencije dostupne 24/7</span>
+            <span className="text-[10px] md:text-xs font-bold text-white tracking-widest uppercase">Hitne intervencije dostupne 24/7</span>
           </motion.div>
           
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl sm:text-6xl lg:text-8xl font-bold tracking-tight text-white mb-8 font-display leading-[0.9]"
+            className="text-4xl sm:text-6xl lg:text-8xl font-bold tracking-tight text-white mb-6 md:mb-8 font-display leading-[1.1] md:leading-[0.9]"
           >
             Vrhunske usluge za <span className="text-brand-gold">Moderne Domove</span>
           </motion.h1>
@@ -148,7 +152,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-slate-300 mb-12 max-w-xl font-light leading-relaxed"
+            className="text-lg md:text-xl text-slate-300 mb-8 md:mb-12 max-w-xl font-light leading-relaxed"
           >
             Brzo, pouzdano i transparentno. Pružamo vodoinstalaterske usluge svetske klase uz posvećenost savršenstvu i trajnim rezultatima.
           </motion.p>
@@ -157,9 +161,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-5"
+            className="flex flex-col sm:flex-row gap-4 md:gap-5"
           >
-            <Button asChild size="lg" className="rounded-full bg-brand-gold hover:bg-white text-brand-navy font-bold px-10 py-7 text-lg transition-all duration-300 shadow-xl hover:shadow-brand-gold/30">
+            <Button asChild size="lg" className="rounded-full bg-brand-gold hover:bg-white text-brand-navy font-bold px-8 md:px-10 py-6 md:py-7 text-base md:text-lg transition-all duration-300 shadow-xl hover:shadow-brand-gold/30">
               <a href="tel:+15551234567" className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
                 Pozovite odmah
@@ -171,19 +175,19 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.7 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="mt-20 pt-10 border-t border-white/10 flex flex-wrap gap-10 sm:gap-16"
+            className="mt-12 md:mt-20 pt-8 md:pt-10 border-t border-white/10 flex flex-wrap gap-6 md:gap-16"
           >
-            <div className="flex items-center gap-3 text-white">
-              <ShieldCheck className="w-6 h-6 text-brand-gold" />
-              <span className="text-sm font-semibold tracking-wide uppercase">Potpuno licencirani</span>
+            <div className="flex items-center gap-2 md:gap-3 text-white">
+              <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 text-brand-gold" />
+              <span className="text-[10px] md:text-sm font-semibold tracking-wide uppercase">Potpuno licencirani</span>
             </div>
-            <div className="flex items-center gap-3 text-white">
-              <Verified className="w-6 h-6 text-brand-gold" />
-              <span className="text-sm font-semibold tracking-wide uppercase">Osigurani</span>
+            <div className="flex items-center gap-2 md:gap-3 text-white">
+              <Verified className="w-5 h-5 md:w-6 md:h-6 text-brand-gold" />
+              <span className="text-[10px] md:text-sm font-semibold tracking-wide uppercase">Osigurani</span>
             </div>
-            <div className="flex items-center gap-3 text-white">
-              <Star className="w-6 h-6 text-brand-gold" />
-              <span className="text-sm font-semibold tracking-wide uppercase">Vrhunski ocenjeni</span>
+            <div className="flex items-center gap-2 md:gap-3 text-white">
+              <Star className="w-5 h-5 md:w-6 md:h-6 text-brand-gold" />
+              <span className="text-[10px] md:text-sm font-semibold tracking-wide uppercase">Vrhunski ocenjeni</span>
             </div>
           </motion.div>
         </div>
@@ -386,7 +390,7 @@ const Testimonials = () => {
           {doubledTestimonials.map((t, idx) => (
             <div 
               key={idx} 
-              className="inline-flex flex-col gap-4 p-8 rounded-3xl bg-slate-50 border border-slate-100 min-w-[350px]"
+              className="inline-flex flex-col gap-4 p-6 md:p-8 rounded-3xl bg-slate-50 border border-slate-100 min-w-[280px] md:min-w-[350px]"
             >
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
@@ -603,7 +607,7 @@ const FAQ = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen font-sans">
+    <div className="min-h-screen font-sans overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
